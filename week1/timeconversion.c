@@ -38,7 +38,38 @@ char* readline();
  *
  */
 char* timeConversion(char* s) {
-    
+    char* result=malloc(8*sizeof(char));
+    if(s[8] == 'P'){
+        if(s[0]=='1' && s[1]=='2'){
+            result[0]=s[0];
+            result[1]=s[1];
+        }
+        else{
+            result[0]=(s[0]+1);
+            result[1]=(s[1]+2);
+            
+        }
+        for(int i=2;i<8;i++){
+                result[i]=s[i];
+            }
+            
+    }
+    else{
+        if(s[0]=='1' && s[1]=='2'){
+            result[0]='0';
+            result[1]='0';
+        }
+        else{
+            result[0]=s[0];
+            result[1]=s[1];
+            
+        }
+        for(int i=2;i<8;i++){
+                result[i]=s[i];
+            }
+            
+    }
+    return result;
 }
 
 int main()
@@ -46,12 +77,10 @@ int main()
     FILE* fptr = fopen(getenv("OUTPUT_PATH"), "w");
 
     char* s = readline();
-
     char* result = timeConversion(s);
-
     fprintf(fptr, "%s\n", result);
 
-    fclose(fptr);
+     fclose(fptr);
 
     return 0;
 }
