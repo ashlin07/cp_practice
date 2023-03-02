@@ -1,1 +1,1 @@
-"# cp_practice" 
+"algorithms_practice" 
